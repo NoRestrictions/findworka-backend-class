@@ -8,7 +8,8 @@ if (isset($_POST['login'])) {
   if ($account) {
     // compare hash with password
     // PDO::FETCH_OBJ -> sets the fetch method, to fetch the rows as objects
-    $acct = $account->fetch(PDO::FETCH_OBJ);
+      $acct = $account[0]->fetchAll();
+   // $acct = $account->fetch(PDO::FETCH_OBJ);
     if (password_verify($_POST['password'], $acct->password)) {
       // password match, redirect to dashboard.
       $_SESSION['userid'] = $acct->id;

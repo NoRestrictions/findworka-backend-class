@@ -1,8 +1,9 @@
 <?php 
 session_start();
   try {
-    $db = new PDO("mysql:dbname=findworka;host=127.0.0.1", "root", "root");
+    $db = new PDO("mysql:dbname=findworka;host=localhost", "root", "");
   } catch(PDOException $e) {
-    die('Db connection error: '. $e->getMessage());
+    die('Db connection error: '. $e);
+	//echo 'This an error, please fix!';
   }
 ?>
